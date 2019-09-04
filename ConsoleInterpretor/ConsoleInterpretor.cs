@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConsoleInterpretor
 {
-    class CommandInterpretor
+    public class CommandInterpretor
     {
         public void Run() {
             Console.WriteLine("Welcome to console command interpretor!");
@@ -119,6 +119,10 @@ namespace ConsoleInterpretor
             if (state == State.InQuotes)
             {
                 throw new ArgumentException("Expected closen quote.");
+            }
+            else if (state == State.ReadingWord)
+            {
+                flushToken();
             }
 
             return tokens;
